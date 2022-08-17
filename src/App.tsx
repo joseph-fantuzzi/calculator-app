@@ -5,7 +5,7 @@ import Calculator from "./components/Calculator";
 import Footer from "./components/Footer";
 
 const styles = {
-  calc_container: "h-screen absolute top-0 w-full flex items-center justify-center",
+  calc_container: "h-full absolute top-0 w-full flex items-center justify-center",
 };
 
 function App() {

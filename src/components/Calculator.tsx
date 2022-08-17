@@ -8,7 +8,7 @@ const styles = {
     "mx-auto w-10/12 h-1/5 bg-white rounded-2xl relative top-5 flex justify-end items-center px-5 shadow-md",
   number_container: "mt-10 flex flex-col items-center",
   row: "flex",
-  value: "text-2xl",
+  computation: "text-2xl",
   top_row:
     "rounded-full bg-white shadow-md w-14 h-14 flex items-center justify-center cursor-pointer m-1",
 };
@@ -16,28 +16,28 @@ const styles = {
 const numbers: number[] = [7, 8, 9, 4, 5, 6, 1, 2, 3];
 
 const Calculator = () => {
-  const [value, setValue] = useState<number>(0);
+  const [computation, setComputation] = useState<string>("0");
 
   const handleClick = (number: number) => {
-    setValue(number);
+    setComputation(computation === "0" ? `${number}` : computation.concat(`${number}`));
   };
 
   const handleClear = () => {
-    setValue(0);
+    setComputation("0");
   };
 
   const handleSign = () => {
-    setValue(-value);
+    setComputation(computation[0] === "-" ? computation.slice(1) : `-${computation}`);
   };
 
   const handlePercent = () => {
-    setValue(value / 100);
+    setComputation((Number(computation) / 100).toString());
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.screen}>
-        <div className={styles.value}>{value}</div>
+        <div className={styles.computation}>{computation}</div>
       </div>
       <div className={styles.number_container}>
         <div className={styles.row}>
