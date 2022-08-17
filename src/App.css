@@ -1,0 +1,11 @@
+.my-shadow {
+  box-shadow: 4px 4px 8px #cbcbcb, -4px -4px 8px #ffffff;
+}
+
+.press {
+  transition: all 0.3s ease;
+}
+
+.press:active {
+  scale: 0.8;
+}
