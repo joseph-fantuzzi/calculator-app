@@ -6,6 +6,10 @@
   transition: all 0.3s ease;
 }
 
+.press:hover {
+  scale: 1.05;
+}
+
 .press:active {
   scale: 0.8;
 }

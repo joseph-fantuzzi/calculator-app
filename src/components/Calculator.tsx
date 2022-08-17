@@ -6,7 +6,7 @@ const styles = {
   number:
     "text-white rounded-full w-14 h-14 bg-[#737373] flex items-center justify-center m-1 cursor-pointer my-shadow press",
   screen:
-    "mx-auto w-10/12 h-1/5 bg-white rounded-2xl relative top-5 flex justify-end items-center px-5 shadow-md",
+    "mx-auto w-3/4 h-1/5 bg-white rounded-2xl relative top-5 flex justify-end items-center px-5 shadow-md",
   number_container: "flex flex-col items-center",
   row: "flex",
   computation: "text-2xl",
@@ -52,11 +52,29 @@ const Calculator = () => {
   const handleSign = (sign: string) => {
     if (sign === "=") {
       if (operator === "+") {
-        setComputation(`${result + Number(computation)}`);
+        if (`${result + Number(computation)}`.length <= 10) {
+          setComputation(`${result + Number(computation)}`);
+        } else {
+          const length = `${result + Number(computation)}`.length;
+          const answer = `${result + Number(computation)}`;
+          const sliced = answer.slice(0, 7) + "e";
+          const concatStr = sliced.slice(0, 1) + "." + sliced.slice(1);
+          const final = concatStr + (length - 1).toString();
+          setComputation(final);
+        }
       } else if (operator === "-") {
         setComputation(`${result - Number(computation)}`);
       } else if (operator === "x") {
-        setComputation(`${result * Number(computation)}`);
+        if (`${result * Number(computation)}`.length <= 10) {
+          setComputation(`${result * Number(computation)}`);
+        } else {
+          const length = `${result * Number(computation)}`.length;
+          const answer = `${result * Number(computation)}`;
+          const sliced = answer.slice(0, 7) + "e";
+          const concatStr = sliced.slice(0, 1) + "." + sliced.slice(1);
+          const final = concatStr + (length - 1).toString();
+          setComputation(final);
+        }
       } else if (operator === "/") {
         setComputation(`${result / Number(computation)}`);
       }
