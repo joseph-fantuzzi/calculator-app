@@ -14,7 +14,7 @@ const styles = {
     "rounded-full bg-[#d6d6d6] w-14 h-14 flex items-center justify-center cursor-pointer m-1 my-shadow press",
   zero: "text-white rounded-full bg-[#737373] w-28 h-14 flex items-center justify-start cursor-pointer my-1 mx-2 my-shadow press px-5",
   signs: "flex flex-col",
-  sign: "rounded-full w-14 h-14 bg-[#FCC65D] flex items-center justify-center m-1 cursor-pointer my-shadow press",
+  sign: "rounded-full w-14 h-14 bg-[#FF8AFF] flex items-center justify-center m-1 cursor-pointer my-shadow press",
   buttons_container: "flex justify-center mt-8 h-80",
 };
 
